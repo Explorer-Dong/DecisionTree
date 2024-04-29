@@ -40,3 +40,9 @@
 利用 sk-learn 包的 [`DecisionTreeClassifier`](https://scikit-learn.org.cn/view/784.html) 分类器进行对照。
 
 ### 四、项目总结
+
+### 五、参考文献
+
+[机器学习 周志华](https://book.douban.com/subject/26708119/)
+
+[1.10 决策树](https://scikit-learn.org.cn/view/89.html#1.10.1%20%E5%88%86%E7%B1%BB)
