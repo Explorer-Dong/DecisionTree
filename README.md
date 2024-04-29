@@ -1,70 +1,35 @@
-## 手搓决策树
+## 使用 numpy 实现 Decision Tree
 
 ### 一、数据预处理
 
 #### 1.1 数据集简介
 
-本项目使用的 [Adult](https://archive.ics.uci.edu/dataset/2/adult) 数据集共 14 个属性，2 个类别。在开始之前我们有必要了解一下数据集的详细情况：
-
-14 个属性信息罗列如下：共 6 个连续型属性，8 个离散型属性
-
-age: continuous.
-workclass: Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.
-fnlwgt: continuous.
-education: Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool.
-education-num: continuous.
-marital-status: Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse.
-occupation: Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces.
-relationship: Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried.
-race: White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black.
-sex: Female, Male.
-capital-gain: continuous.
-capital-loss: continuous.
-hours-per-week: continuous.
-native-country: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad&Tobago, Peru, Hong, Holand-Netherlands.
-
-|  属性名   | 类别 | 含义 |
-| :-------: | :--: | :--: |
-|    age    |      |      |
-| workclass |      |      |
-|  fnlwgt   |      |      |
-| education |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-|           |      |      |
-
-2 个类别信息罗列如下：
-
-| 类名  |       含义        |
-| :---: | :---------------: |
-| >50K  |   年收入大于50K   |
-| <=50K | 年收入小于等于50K |
+本项目使用的 [Adult](https://archive.ics.uci.edu/dataset/2/adult) 数据集共 14 个属性，2 个标签。14 个属性中，共 6 个连续型属性，8 个离散型属性；2 个标签中，分别是年收入的高低情况。并且数据集已经帮我们划分好了训练集 `adult.data` 和测试集 `adult.test`。我们的任务就是训练一个决策树来对未知数据进行二分类。
 
 #### 1.2 数据缺失值处理
 
+可以看到数据集中有部分数据缺失的样本，我们需要解决这一部分的数据缺失，经过统计，发现有属性缺失的样本数量在训练集和测试集中的占比均不到 $8\%$，因此我们考虑直接删除训练集和测试集中有属性缺失的样本。
+
 #### 1.3 连续型数据处理
 
-#### 1.4 离散型数据处理
+由于决策树在进行结点生成时，需要依据当前结点的属性列举所有可能的测试属性，这要求属性的取值是可列的，但是连续型数据的属性值是不可列的，这要求我们对连续型数据进行离散化处理。
 
 ### 二、模型训练
 
-#### 2.1 模型简介
+本项目使用 numpy、pandas 等科学计算库，利用 adult 数据集，模拟实现了决策树 $\text{(Decision Tree Classifier)}$ 分类模型。
 
-#### 2.2 细节处理
+#### 2.1 定义树结点
+
+训练学习的根本是构建一棵决策树并且为每一个叶子结点打上关于 $\text{income}$ 的标签，因此我们需要合理设计树的结点。
 
 ### 三、模型测试与评估
 
-#### 3.1 信息增益处理结果
+#### 3.1 纵向对比测试
 
-#### 3.2 信息率处理结果
+依据划分策略，本项目实现了信息增益、信息率和基尼指数三种方法，经过测试有以下性能趋势
 
-#### 3.3 基尼指数处理结果
+#### 3.2 纵向对比测试
+
+利用 sk-learn 包的 [`DecisionTreeClassifier`](https://scikit-learn.org.cn/view/784.html) 分类器进行对照。
 
 ### 四、项目总结
