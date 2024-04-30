@@ -1,4 +1,4 @@
-## 使用 numpy 实现 Decision Tree
+## 动手实现 Decision Tree
 
 ### 一、数据预处理
 
@@ -31,17 +31,15 @@
 
 ### 三、模型测试与评估
 
-#### 3.1 纵向对比测试
+依据划分策略，本项目实现了信息增益、信息率和基尼指数三种方法，经过测试发现对于当前数据集的性能差别不大。利用 sk-learn 包的 [`DecisionTreeClassifier`](https://scikit-learn.org.cn/view/784.html) 分类器进行对照后的结果为：
 
-依据划分策略，本项目实现了信息增益、信息率和基尼指数三种方法，经过测试有以下性能趋势。
+<img src="https://dwj-oss.oss-cn-nanjing.aliyuncs.com/images/202404301337154.png" alt="对照后的结果" style="zoom:50%;" />
 
-#### 3.2 纵向对比测试
+使用 sk-learn 库的 tree 库后的树形图：
 
-利用 sk-learn 包的 [`DecisionTreeClassifier`](https://scikit-learn.org.cn/view/784.html) 分类器进行对照。
+![树形图](https://dwj-oss.oss-cn-nanjing.aliyuncs.com/images/202404301337991.png)
 
-### 四、项目总结
-
-### 五、参考文献
+### 四、参考文献
 
 [机器学习 周志华](https://book.douban.com/subject/26708119/)
 
